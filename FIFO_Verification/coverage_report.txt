@@ -1,0 +1,809 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /\top_module#DUT 
+=== Design Unit: work.FIFO
+=================================================================================
+
+Assertion Coverage:
+    Assertions                      26        26         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\top_module#DUT /count_rst
+                     code.sv(55)                        0          1
+/\top_module#DUT /wr_ptr_rst
+                     code.sv(56)                        0          1
+/\top_module#DUT /rd_ptr_rst
+                     code.sv(57)                        0          1
+/\top_module#DUT /alm_empty_check
+                     code.sv(65)                        0          1
+/\top_module#DUT /empty_check_comb
+                     code.sv(69)                        0          1
+/\top_module#DUT /full_check_comb
+                     code.sv(73)                        0          1
+/\top_module#DUT /alm_full_check
+                     code.sv(77)                        0          1
+/\top_module#DUT /a1 code.sv(170)                       0          1
+/\top_module#DUT /a2 code.sv(171)                       0          1
+/\top_module#DUT /a3 code.sv(172)                       0          1
+/\top_module#DUT /a4 code.sv(173)                       0          1
+/\top_module#DUT /a5 code.sv(174)                       0          1
+/\top_module#DUT /a6 code.sv(175)                       0          1
+/\top_module#DUT /a7 code.sv(176)                       0          1
+/\top_module#DUT /a8 code.sv(177)                       0          1
+/\top_module#DUT /a9 code.sv(178)                       0          1
+/\top_module#DUT /a10
+                     code.sv(179)                       0          1
+/\top_module#DUT /a11
+                     code.sv(180)                       0          1
+/\top_module#DUT /a12
+                     code.sv(181)                       0          1
+/\top_module#DUT /a13
+                     code.sv(182)                       0          1
+/\top_module#DUT /a14
+                     code.sv(183)                       0          1
+/\top_module#DUT /a15
+                     code.sv(184)                       0          1
+/\top_module#DUT /a16
+                     code.sv(185)                       0          1
+/\top_module#DUT /a17
+                     code.sv(186)                       0          1
+/\top_module#DUT /a18
+                     code.sv(187)                       0          1
+/\top_module#DUT /a19
+                     code.sv(188)                       0          1
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        39        39         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for instance /\top_module#DUT 
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File code.sv
+------------------------------------IF Branch------------------------------------
+    53                                     15110     Count coming in to IF
+    53              1                       1482         if(!f_if.rst_n) begin
+                                           13628     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    63                                     15110     Count coming in to IF
+    63              1                       5199     	  if (count == 1) begin
+    67              1                       2429     	 end else if(count == 0) begin
+    71              1                         52     	 end else if (count == FIFO_DEPTH) begin
+    75              1                        258     	 end else if(count == FIFO_DEPTH-1) begin
+                                            7172     All False Count
+Branch totals: 5 hits of 5 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    212                                    15752     Count coming in to IF
+    212             1                       1538     	if (!f_if.rst_n) begin
+    217             1                      10631     	else if (f_if.wr_en && count < FIFO_DEPTH) begin
+    228             1                       3583     	else begin 
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    220                                    10631     Count coming in to IF
+    220             1                       1019     		if (wr_ptr == FIFO_DEPTH-1) begin
+    223             1                       9612     		else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    230                                     3583     Count coming in to IF
+    230             1                         37     		if (f_if.full == 1'b1 && f_if.wr_en == 1'b1)
+    232             1                       3546     		else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    237                                    15752     Count coming in to IF
+    237             1                       1538     	if (!f_if.rst_n) begin
+    241             1                       9037     	else if (f_if.rd_en && count != 0) begin
+                                            5177     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    243                                     9037     Count coming in to IF
+    243             1                        849     		if (rd_ptr == FIFO_DEPTH-1)
+    245             1                       8188     		else	
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    250                                    11948     Count coming in to IF
+    250             1                       1520     	if (!f_if.rst_n) begin
+    253             1                      10428     	else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    254                                    10428     Count coming in to IF
+    254             1                       2715     		if	( ({f_if.wr_en, f_if.rd_en} == 2'b10) && !f_if.full) 
+    256             1                       2218     		else if ( ({f_if.wr_en, f_if.rd_en} == 2'b01) && !f_if.empty)
+    258             1                       4293     		else if ({f_if.wr_en, f_if.rd_en} == 2'b11) begin
+                                            1202     All False Count
+Branch totals: 4 hits of 4 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    259                                     4293     Count coming in to IF
+    259             1                       1127     			if (f_if.empty) begin
+    261             1                         30     			end else if(f_if.full) begin
+                                            3136     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    268                                    15752     Count coming in to IF
+    268             1                       1538       if (!f_if.rst_n)
+    270             1                       1524       else if (f_if.rd_en && f_if.empty)
+    272             1                      12690       else
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    275                                     6763     Count coming in to IF
+    275             1                         47     assign f_if.full = (count == FIFO_DEPTH)? 1 : 0;
+    275             2                       6716     assign f_if.full = (count == FIFO_DEPTH)? 1 : 0;
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    276                                     6763     Count coming in to IF
+    276             1                       1544     assign f_if.empty = (count == 0)? 1 : 0; 
+    276             2                       5219     assign f_if.empty = (count == 0)? 1 : 0; 
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    277                                     6763     Count coming in to IF
+    277             1                        106     assign f_if.almostfull = (count == FIFO_DEPTH-1)? 1 : 0; 
+    277             2                       6657     assign f_if.almostfull = (count == FIFO_DEPTH-1)? 1 : 0; 
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    278                                     6763     Count coming in to IF
+    278             1                       2089     assign f_if.almostempty = (count == 1)? 1 : 0;
+    278             2                       4674     assign f_if.almostempty = (count == 1)? 1 : 0;
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                      26        26         0   100.00%
+
+================================Condition Details================================
+
+Condition Coverage for instance /\top_module#DUT  --
+
+  File code.sv
+----------------Focused Condition View-------------------
+Line       63 Item    1  (count == 1)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+    Input Term   Covered  Reason for no coverage   Hint
+   -----------  --------  -----------------------  --------------
+  (count == 1)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (count == 1)_0        -                             
+  Row   2:          1  (count == 1)_1        -                             
+
+----------------Focused Condition View-------------------
+Line       67 Item    1  (count == 0)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+    Input Term   Covered  Reason for no coverage   Hint
+   -----------  --------  -----------------------  --------------
+  (count == 0)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (count == 0)_0        -                             
+  Row   2:          1  (count == 0)_1        -                             
+
+----------------Focused Condition View-------------------
+Line       71 Item    1  (count == 8)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+    Input Term   Covered  Reason for no coverage   Hint
+   -----------  --------  -----------------------  --------------
+  (count == 8)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (count == 8)_0        -                             
+  Row   2:          1  (count == 8)_1        -                             
+
+----------------Focused Condition View-------------------
+Line       75 Item    1  (count == (8 - 1))
+Condition totals: 1 of 1 input term covered = 100.00%
+
+          Input Term   Covered  Reason for no coverage   Hint
+         -----------  --------  -----------------------  --------------
+  (count == (8 - 1))         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (count == (8 - 1))_0  -                             
+  Row   2:          1  (count == (8 - 1))_1  -                             
+
+----------------Focused Condition View-------------------
+Line       217 Item    1  (f_if.wr_en && (count < 8))
+Condition totals: 2 of 2 input terms covered = 100.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+   f_if.wr_en         Y
+  (count < 8)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  f_if.wr_en_0          -                             
+  Row   2:          1  f_if.wr_en_1          (count < 8)                   
+  Row   3:          1  (count < 8)_0         f_if.wr_en                    
+  Row   4:          1  (count < 8)_1         f_if.wr_en                    
+
+----------------Focused Condition View-------------------
+Line       220 Item    1  (wr_ptr == (8 - 1))
+Condition totals: 1 of 1 input term covered = 100.00%
+
+           Input Term   Covered  Reason for no coverage   Hint
+          -----------  --------  -----------------------  --------------
+  (wr_ptr == (8 - 1))         Y
+
+     Rows:       Hits  FEC Target             Non-masking condition(s)      
+ ---------  ---------  --------------------   -------------------------     
+  Row   1:          1  (wr_ptr == (8 - 1))_0  -                             
+  Row   2:          1  (wr_ptr == (8 - 1))_1  -                             
+
+----------------Focused Condition View-------------------
+Line       230 Item    1  (f_if.full && f_if.wr_en)
+Condition totals: 2 of 2 input terms covered = 100.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+   f_if.full         Y
+  f_if.wr_en         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  f_if.full_0           -                             
+  Row   2:          1  f_if.full_1           f_if.wr_en                    
+  Row   3:          1  f_if.wr_en_0          f_if.full                     
+  Row   4:          1  f_if.wr_en_1          f_if.full                     
+
+----------------Focused Condition View-------------------
+Line       241 Item    1  (f_if.rd_en && (count != 0))
+Condition totals: 2 of 2 input terms covered = 100.00%
+
+    Input Term   Covered  Reason for no coverage   Hint
+   -----------  --------  -----------------------  --------------
+    f_if.rd_en         Y
+  (count != 0)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  f_if.rd_en_0          -                             
+  Row   2:          1  f_if.rd_en_1          (count != 0)                  
+  Row   3:          1  (count != 0)_0        f_if.rd_en                    
+  Row   4:          1  (count != 0)_1        f_if.rd_en                    
+
+----------------Focused Condition View-------------------
+Line       243 Item    1  (rd_ptr == (8 - 1))
+Condition totals: 1 of 1 input term covered = 100.00%
+
+           Input Term   Covered  Reason for no coverage   Hint
+          -----------  --------  -----------------------  --------------
+  (rd_ptr == (8 - 1))         Y
+
+     Rows:       Hits  FEC Target             Non-masking condition(s)      
+ ---------  ---------  --------------------   -------------------------     
+  Row   1:          1  (rd_ptr == (8 - 1))_0  -                             
+  Row   2:          1  (rd_ptr == (8 - 1))_1  -                             
+
+----------------Focused Condition View-------------------
+Line       254 Item    1  ((~f_if.rd_en && f_if.wr_en) && ~f_if.full)
+Condition totals: 3 of 3 input terms covered = 100.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+  f_if.rd_en         Y
+  f_if.wr_en         Y
+   f_if.full         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  f_if.rd_en_0          (~f_if.full && f_if.wr_en)    
+  Row   2:          1  f_if.rd_en_1          -                             
+  Row   3:          1  f_if.wr_en_0          ~f_if.rd_en                   
+  Row   4:          1  f_if.wr_en_1          (~f_if.full && ~f_if.rd_en)   
+  Row   5:          1  f_if.full_0           (~f_if.rd_en && f_if.wr_en)   
+  Row   6:          1  f_if.full_1           (~f_if.rd_en && f_if.wr_en)   
+
+----------------Focused Condition View-------------------
+Line       256 Item    1  ((f_if.rd_en && ~f_if.wr_en) && ~f_if.empty)
+Condition totals: 3 of 3 input terms covered = 100.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+  f_if.rd_en         Y
+  f_if.wr_en         Y
+  f_if.empty         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  f_if.rd_en_0          -                             
+  Row   2:          1  f_if.rd_en_1          (~f_if.empty && ~f_if.wr_en)  
+  Row   3:          1  f_if.wr_en_0          (~f_if.empty && f_if.rd_en)   
+  Row   4:          1  f_if.wr_en_1          f_if.rd_en                    
+  Row   5:          1  f_if.empty_0          (f_if.rd_en && ~f_if.wr_en)   
+  Row   6:          1  f_if.empty_1          (f_if.rd_en && ~f_if.wr_en)   
+
+----------------Focused Condition View-------------------
+Line       258 Item    1  (f_if.rd_en & f_if.wr_en)
+Condition totals: 2 of 2 input terms covered = 100.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+  f_if.rd_en         Y
+  f_if.wr_en         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  f_if.rd_en_0          f_if.wr_en                    
+  Row   2:          1  f_if.rd_en_1          f_if.wr_en                    
+  Row   3:          1  f_if.wr_en_0          f_if.rd_en                    
+  Row   4:          1  f_if.wr_en_1          f_if.rd_en                    
+
+----------------Focused Condition View-------------------
+Line       270 Item    1  (f_if.rd_en && f_if.empty)
+Condition totals: 2 of 2 input terms covered = 100.00%
+
+  Input Term   Covered  Reason for no coverage   Hint
+ -----------  --------  -----------------------  --------------
+  f_if.rd_en         Y
+  f_if.empty         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  f_if.rd_en_0          -                             
+  Row   2:          1  f_if.rd_en_1          f_if.empty                    
+  Row   3:          1  f_if.empty_0          f_if.rd_en                    
+  Row   4:          1  f_if.empty_1          f_if.rd_en                    
+
+----------------Focused Condition View-------------------
+Line       275 Item    1  (count == 8)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+    Input Term   Covered  Reason for no coverage   Hint
+   -----------  --------  -----------------------  --------------
+  (count == 8)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (count == 8)_0        -                             
+  Row   2:          1  (count == 8)_1        -                             
+
+----------------Focused Condition View-------------------
+Line       276 Item    1  (count == 0)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+    Input Term   Covered  Reason for no coverage   Hint
+   -----------  --------  -----------------------  --------------
+  (count == 0)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (count == 0)_0        -                             
+  Row   2:          1  (count == 0)_1        -                             
+
+----------------Focused Condition View-------------------
+Line       277 Item    1  (count == (8 - 1))
+Condition totals: 1 of 1 input term covered = 100.00%
+
+          Input Term   Covered  Reason for no coverage   Hint
+         -----------  --------  -----------------------  --------------
+  (count == (8 - 1))         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (count == (8 - 1))_0  -                             
+  Row   2:          1  (count == (8 - 1))_1  -                             
+
+----------------Focused Condition View-------------------
+Line       278 Item    1  (count == 1)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+    Input Term   Covered  Reason for no coverage   Hint
+   -----------  --------  -----------------------  --------------
+  (count == 1)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (count == 1)_0        -                             
+  Row   2:          1  (count == 1)_1        -                             
+
+
+
+Directive Coverage:
+    Directives                      22        22         0   100.00%
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/\top_module#DUT /count_rst_c            FIFO   Verilog  SVA  code.sv(58)      749 Covered   
+/\top_module#DUT /wr_ptr_rst_c           FIFO   Verilog  SVA  code.sv(59)      749 Covered   
+/\top_module#DUT /rd_ptr_rst_c           FIFO   Verilog  SVA  code.sv(60)      749 Covered   
+/\top_module#DUT /c1                     FIFO   Verilog  SVA  code.sv(191)     789 Covered   
+/\top_module#DUT /c2                     FIFO   Verilog  SVA  code.sv(192)    10073 Covered   
+/\top_module#DUT /c3                     FIFO   Verilog  SVA  code.sv(193)      35 Covered   
+/\top_module#DUT /c4                     FIFO   Verilog  SVA  code.sv(194)    1445 Covered   
+/\top_module#DUT /c5                     FIFO   Verilog  SVA  code.sv(195)    2124 Covered   
+/\top_module#DUT /c6                     FIFO   Verilog  SVA  code.sv(196)      50 Covered   
+/\top_module#DUT /c7                     FIFO   Verilog  SVA  code.sv(197)     249 Covered   
+/\top_module#DUT /c8                     FIFO   Verilog  SVA  code.sv(198)    4947 Covered   
+/\top_module#DUT /c9                     FIFO   Verilog  SVA  code.sv(199)     961 Covered   
+/\top_module#DUT /c10                    FIFO   Verilog  SVA  code.sv(200)     817 Covered   
+/\top_module#DUT /c11                    FIFO   Verilog  SVA  code.sv(201)    14214 Covered   
+/\top_module#DUT /c12                    FIFO   Verilog  SVA  code.sv(202)    14214 Covered   
+/\top_module#DUT /c13                    FIFO   Verilog  SVA  code.sv(203)    14214 Covered   
+/\top_module#DUT /c14                    FIFO   Verilog  SVA  code.sv(204)    2561 Covered   
+/\top_module#DUT /c15                    FIFO   Verilog  SVA  code.sv(205)    2106 Covered   
+/\top_module#DUT /c16                    FIFO   Verilog  SVA  code.sv(206)    1066 Covered   
+/\top_module#DUT /c17                    FIFO   Verilog  SVA  code.sv(207)      29 Covered   
+/\top_module#DUT /c18                    FIFO   Verilog  SVA  code.sv(208)    10073 Covered   
+/\top_module#DUT /c19                    FIFO   Verilog  SVA  code.sv(209)    8581 Covered   
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      33        33         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for instance /\top_module#DUT  --
+
+    Line         Item                      Count     Source 
+    ----         ----                      -----     ------ 
+  File code.sv
+    44                                               module FIFO(fifo_if.DUT f_if);
+    45                                                parameter FIFO_WIDTH = 16;
+    46                                                parameter FIFO_DEPTH = 8;
+    47                                                localparam max_fifo_addr = $clog2(FIFO_DEPTH);
+    48                                                reg [FIFO_WIDTH-1:0] mem [FIFO_DEPTH-1:0];
+    49                                                reg [max_fifo_addr-1:0] wr_ptr, rd_ptr;
+    50                                                reg [max_fifo_addr:0] count;
+    51                                               
+    52              1                      15110       always_comb begin
+    53                                                   if(!f_if.rst_n) begin
+    54                                                   `ifdef SIM
+    55                                               	 count_rst: assert final(count == 0);
+    56                                                    wr_ptr_rst: assert final(wr_ptr == 0);
+    57                                                    rd_ptr_rst: assert final(rd_ptr == 0);
+    58                                               	 count_rst_c: cover final(count == 0);
+    59                                                    wr_ptr_rst_c: cover final(wr_ptr == 0);
+    60                                                    rd_ptr_rst_c: cover final(rd_ptr == 0);
+    61                                                   `endif
+    62                                               	end
+    63                                               	  if (count == 1) begin
+    64                                               		`ifdef SIM
+    65                                                       alm_empty_check: assert final (f_if.almostempty == 1'b1);
+    66                                               		`endif
+    67                                               	 end else if(count == 0) begin
+    68                                               		`ifdef SIM
+    69                                                       empty_check_comb: assert final (f_if.empty == 1'b1);
+    70                                               		`endif
+    71                                               	 end else if (count == FIFO_DEPTH) begin
+    72                                               		`ifdef SIM
+    73                                                       full_check_comb: assert final (f_if.full == 1'b1);
+    74                                               		`endif
+    75                                               	 end else if(count == FIFO_DEPTH-1) begin
+    76                                               		`ifdef SIM
+    77                                                       alm_full_check: assert final (f_if.almostfull == 1'b1); 
+    78                                               		`endif 
+    79                                               	 end
+    80                                               
+    81                                               	
+    82                                                 end
+    83                                               
+    84                                               property reset_check;
+    85                                                 @(posedge f_if.clk) !f_if.rst_n |-> (wr_ptr == 0 && rd_ptr == 0 && count == 0);
+    86                                               endproperty
+    87                                               
+    88                                               property wr_ack_check;
+    89                                                 @(posedge f_if.clk) disable iff(!f_if.rst_n)
+    90                                                   (f_if.wr_en && !f_if.full) |=> f_if.wr_ack;
+    91                                               endproperty
+    92                                               
+    93                                               property overflow_check;
+    94                                                 @(posedge f_if.clk) disable iff(!f_if.rst_n)
+    95                                                   (f_if.wr_en && f_if.full) |=> f_if.overflow;
+    96                                               endproperty
+    97                                               
+    98                                               property underflow_check;
+    99                                                 @(posedge f_if.clk) disable iff(!f_if.rst_n)
+    100                                                  (f_if.rd_en && f_if.empty) |=> f_if.underflow;
+    101                                              endproperty
+    102                                              
+    103                                              property empty_check;
+    104                                                @(posedge f_if.clk) disable iff(!f_if.rst_n)
+    105                                                  (count == 0) |-> f_if.empty;
+    106                                              endproperty
+    107                                              
+    108                                              property full_check;
+    109                                                @(posedge f_if.clk) disable iff(!f_if.rst_n)
+    110                                                  (count == FIFO_DEPTH) |-> f_if.full;
+    111                                              endproperty
+    112                                              
+    113                                              property almostfull_check;
+    114                                                @(posedge f_if.clk) disable iff(!f_if.rst_n)
+    115                                                  (count == FIFO_DEPTH-1) |-> f_if.almostfull;
+    116                                              endproperty
+    117                                              
+    118                                              property almostempty_check;
+    119                                                @(posedge f_if.clk) disable iff(!f_if.rst_n)
+    120                                                  (count == 1) |-> f_if.almostempty;
+    121                                              endproperty
+    122                                              
+    123                                              property wr_wrap_check;
+    124                                                @(posedge f_if.clk) disable iff(!f_if.rst_n)
+    125                                                  (f_if.wr_en && !f_if.full && wr_ptr == FIFO_DEPTH-1) |=> (wr_ptr == 0);
+    126                                              endproperty
+    127                                              
+    128                                              property rd_wrap_check;
+    129                                                @(posedge f_if.clk) disable iff(!f_if.rst_n)
+    130                                                  (f_if.rd_en && !f_if.empty && rd_ptr == FIFO_DEPTH-1) |=> (rd_ptr == 0);
+    131                                              endproperty
+    132                                              
+    133                                              property wr_threshold_check;
+    134                                                @(posedge f_if.clk) disable iff(!f_if.rst_n) wr_ptr < FIFO_DEPTH;
+    135                                              endproperty
+    136                                              
+    137                                              property rd_threshold_check;
+    138                                                @(posedge f_if.clk) disable iff(!f_if.rst_n) rd_ptr < FIFO_DEPTH;
+    139                                              endproperty
+    140                                              
+    141                                              property count_threshold_check;
+    142                                                @(posedge f_if.clk) disable iff(!f_if.rst_n) count <= FIFO_DEPTH;
+    143                                              endproperty
+    144                                              
+    145                                              property count_up_check;
+    146                                              	@(posedge f_if.clk) disable iff (!f_if.rst_n) (f_if.wr_en) && (!f_if.rd_en) && (!f_if.full) |=> (count == $past(count) + 1'b1);
+    147                                              endproperty
+    148                                              
+    149                                              property count_down_check;
+    150                                              	@(posedge f_if.clk) disable iff (!f_if.rst_n) (!f_if.wr_en) && (f_if.rd_en) && (!f_if.empty) |=> (count == $past(count) - 1'b1);	
+    151                                              endproperty
+    152                                              
+    153                                              property priority_check1;
+    154                                              	@(posedge f_if.clk) disable iff (!f_if.rst_n) (f_if.wr_en) && (f_if.rd_en) && (f_if.empty) |=> (count == $past(count) + 1'b1);
+    155                                              endproperty
+    156                                              
+    157                                              property priority_check2;
+    158                                              	@(posedge f_if.clk) disable iff (!f_if.rst_n) (f_if.wr_en) && (f_if.rd_en) && (f_if.full) |=> (count == $past(count) - 1'b1);
+    159                                              endproperty
+    160                                              
+    161                                              property wr_ptr_check;
+    162                                              	@(posedge f_if.clk) disable iff (!f_if.rst_n) (f_if.wr_en) && (count < FIFO_DEPTH) |=> (wr_ptr == $past(wr_ptr) + 1'b1);
+    163                                              endproperty
+    164                                              
+    165                                              property rd_ptr_check;
+    166                                              	@(posedge f_if.clk) disable iff (!f_if.rst_n) (f_if.rd_en) && (count != 0) |=> (rd_ptr == $past(rd_ptr) + 1'b1);
+    167                                              endproperty
+    168                                              
+    169                                              `ifdef SIM
+    170                                              a1:assert property(reset_check);
+    171                                              a2:assert property(wr_ack_check);
+    172                                              a3:assert property(overflow_check);
+    173                                              a4:assert property(underflow_check);
+    174                                              a5:assert property(empty_check);
+    175                                              a6:assert property(full_check);
+    176                                              a7:assert property(almostfull_check);
+    177                                              a8:assert property(almostempty_check);
+    178                                              a9:assert property(wr_wrap_check);
+    179                                              a10:assert property(rd_wrap_check);
+    180                                              a11:assert property(wr_threshold_check);
+    181                                              a12:assert property(rd_threshold_check);
+    182                                              a13:assert property(count_threshold_check);
+    183                                              a14:assert property(count_up_check);
+    184                                              a15:assert property(count_down_check);
+    185                                              a16:assert property(priority_check1);
+    186                                              a17:assert property(priority_check2);
+    187                                              a18:assert property(wr_ptr_check);
+    188                                              a19:assert property(rd_ptr_check);
+    189                                              `endif
+    190                                              
+    191                                              c1:cover property(reset_check);
+    192                                              c2:cover property(wr_ack_check);
+    193                                              c3:cover property(overflow_check);
+    194                                              c4:cover property(underflow_check);
+    195                                              c5:cover property(empty_check);
+    196                                              c6:cover property(full_check);
+    197                                              c7:cover property(almostfull_check);
+    198                                              c8:cover property(almostempty_check);
+    199                                              c9:cover property(wr_wrap_check);
+    200                                              c10:cover property(rd_wrap_check);
+    201                                              c11:cover property(wr_threshold_check);
+    202                                              c12:cover property(rd_threshold_check);
+    203                                              c13:cover property(count_threshold_check);
+    204                                              c14:cover property(count_up_check);
+    205                                              c15:cover property(count_down_check);
+    206                                              c16:cover property(priority_check1);
+    207                                              c17:cover property(priority_check2);
+    208                                              c18:cover property(wr_ptr_check);
+    209                                              c19:cover property(rd_ptr_check);
+    210                                              
+    211             1                      15752      always @(posedge f_if.clk or negedge f_if.rst_n) begin
+    212                                              	if (!f_if.rst_n) begin
+    213             1                       1538     		wr_ptr <= 0;
+    214             1                       1538             f_if.wr_ack   <= 0;
+    215             1                       1538             f_if.overflow <= 0;
+    216                                              	end
+    217                                              	else if (f_if.wr_en && count < FIFO_DEPTH) begin
+    218             1                      10631     		mem[wr_ptr] <= f_if.data_in;
+    219             1                      10631     		f_if.wr_ack <= 1;
+    220                                              		if (wr_ptr == FIFO_DEPTH-1) begin
+    221             1                       1019     			wr_ptr <= 0;
+    222                                              		end
+    223                                              		else begin
+    224             1                       9612     		  wr_ptr <= wr_ptr + 1;
+    225                                              		end
+    226             1                      10631     		f_if.overflow <= 0;
+    227                                              	end
+    228                                              	else begin 
+    229             1                       3583     		f_if.wr_ack <= 0; 
+    230                                              		if (f_if.full == 1'b1 && f_if.wr_en == 1'b1)
+    231             1                         37     			f_if.overflow <= 1;
+    232                                              		else
+    233             1                       3546     			f_if.overflow <= 0;
+    234                                              	end
+    235                                              end
+    236             1                      15752     always @(posedge f_if.clk or negedge f_if.rst_n) begin
+    237                                              	if (!f_if.rst_n) begin
+    238             1                       1538     		rd_ptr <= 0;
+    239             1                       1538     		f_if.data_out <= 0;
+    240                                              	end
+    241                                              	else if (f_if.rd_en && count != 0) begin
+    242             1                       9037     		f_if.data_out <= mem[rd_ptr];
+    243                                              		if (rd_ptr == FIFO_DEPTH-1)
+    244             1                        849     			rd_ptr <= 0;
+    245                                              		else	
+    246             1                       8188     		rd_ptr <= rd_ptr + 1;
+    247                                              	end
+    248                                              end
+    249             1                      11948     always @(posedge f_if.clk or negedge f_if.rst_n) begin
+    250                                              	if (!f_if.rst_n) begin
+    251             1                       1520     		count <= 0;
+    252                                              	end
+    253                                              	else begin
+    254                                              		if	( ({f_if.wr_en, f_if.rd_en} == 2'b10) && !f_if.full) 
+    255             1                       2715     			count <= count + 1;
+    256                                              		else if ( ({f_if.wr_en, f_if.rd_en} == 2'b01) && !f_if.empty)
+    257             1                       2218     			count <= count - 1;
+    258                                              		else if ({f_if.wr_en, f_if.rd_en} == 2'b11) begin
+    259                                              			if (f_if.empty) begin
+    260             1                       1127     				count <= count + 1;
+    261                                              			end else if(f_if.full) begin
+    262             1                         30     				count <= count - 1;
+    263                                              			end
+    264                                              		end	
+    265                                              	end
+    266                                              end
+    267             1                      15752     always @(posedge f_if.clk or negedge f_if.rst_n) begin
+    268                                                if (!f_if.rst_n)
+    269             1                       1538         f_if.underflow <= 0;
+    270                                                else if (f_if.rd_en && f_if.empty)
+    271             1                       1524         f_if.underflow <= 1;   
+    272                                                else
+    273             1                      12690         f_if.underflow <= 0;
+    274                                              end
+    275             1                       6764     assign f_if.full = (count == FIFO_DEPTH)? 1 : 0;
+    276             1                       6764     assign f_if.empty = (count == 0)? 1 : 0; 
+    277             1                       6764     assign f_if.almostfull = (count == FIFO_DEPTH-1)? 1 : 0; 
+    278             1                       6764     assign f_if.almostempty = (count == 1)? 1 : 0;
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         20        20         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for instance /\top_module#DUT  --
+
+                                              Node      1H->0L      0L->1H  "Coverage"
+                                              ---------------------------------------
+                                        count[3-0]           1           1      100.00 
+                                       rd_ptr[2-0]           1           1      100.00 
+                                       wr_ptr[2-0]           1           1      100.00 
+
+Total Node Count     =         10 
+Toggled Node Count   =         10 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (20 of 20 bins)
+
+
+DIRECTIVE COVERAGE:
+--------------------------------------------------------------------------------------------
+Name                                     Design Design   Lang File(Line)      Hits Status    
+                                         Unit   UnitType                                     
+--------------------------------------------------------------------------------------------
+/\top_module#DUT /count_rst_c            FIFO   Verilog  SVA  code.sv(58)      749 Covered   
+/\top_module#DUT /wr_ptr_rst_c           FIFO   Verilog  SVA  code.sv(59)      749 Covered   
+/\top_module#DUT /rd_ptr_rst_c           FIFO   Verilog  SVA  code.sv(60)      749 Covered   
+/\top_module#DUT /c1                     FIFO   Verilog  SVA  code.sv(191)     789 Covered   
+/\top_module#DUT /c2                     FIFO   Verilog  SVA  code.sv(192)    10073 Covered   
+/\top_module#DUT /c3                     FIFO   Verilog  SVA  code.sv(193)      35 Covered   
+/\top_module#DUT /c4                     FIFO   Verilog  SVA  code.sv(194)    1445 Covered   
+/\top_module#DUT /c5                     FIFO   Verilog  SVA  code.sv(195)    2124 Covered   
+/\top_module#DUT /c6                     FIFO   Verilog  SVA  code.sv(196)      50 Covered   
+/\top_module#DUT /c7                     FIFO   Verilog  SVA  code.sv(197)     249 Covered   
+/\top_module#DUT /c8                     FIFO   Verilog  SVA  code.sv(198)    4947 Covered   
+/\top_module#DUT /c9                     FIFO   Verilog  SVA  code.sv(199)     961 Covered   
+/\top_module#DUT /c10                    FIFO   Verilog  SVA  code.sv(200)     817 Covered   
+/\top_module#DUT /c11                    FIFO   Verilog  SVA  code.sv(201)    14214 Covered   
+/\top_module#DUT /c12                    FIFO   Verilog  SVA  code.sv(202)    14214 Covered   
+/\top_module#DUT /c13                    FIFO   Verilog  SVA  code.sv(203)    14214 Covered   
+/\top_module#DUT /c14                    FIFO   Verilog  SVA  code.sv(204)    2561 Covered   
+/\top_module#DUT /c15                    FIFO   Verilog  SVA  code.sv(205)    2106 Covered   
+/\top_module#DUT /c16                    FIFO   Verilog  SVA  code.sv(206)    1066 Covered   
+/\top_module#DUT /c17                    FIFO   Verilog  SVA  code.sv(207)      29 Covered   
+/\top_module#DUT /c18                    FIFO   Verilog  SVA  code.sv(208)    10073 Covered   
+/\top_module#DUT /c19                    FIFO   Verilog  SVA  code.sv(209)    8581 Covered   
+
+TOTAL DIRECTIVE COVERAGE: 100.00%  COVERS: 22
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\top_module#DUT /count_rst
+                     code.sv(55)                        0          1
+/\top_module#DUT /wr_ptr_rst
+                     code.sv(56)                        0          1
+/\top_module#DUT /rd_ptr_rst
+                     code.sv(57)                        0          1
+/\top_module#DUT /alm_empty_check
+                     code.sv(65)                        0          1
+/\top_module#DUT /empty_check_comb
+                     code.sv(69)                        0          1
+/\top_module#DUT /full_check_comb
+                     code.sv(73)                        0          1
+/\top_module#DUT /alm_full_check
+                     code.sv(77)                        0          1
+/\top_module#DUT /a1 code.sv(170)                       0          1
+/\top_module#DUT /a2 code.sv(171)                       0          1
+/\top_module#DUT /a3 code.sv(172)                       0          1
+/\top_module#DUT /a4 code.sv(173)                       0          1
+/\top_module#DUT /a5 code.sv(174)                       0          1
+/\top_module#DUT /a6 code.sv(175)                       0          1
+/\top_module#DUT /a7 code.sv(176)                       0          1
+/\top_module#DUT /a8 code.sv(177)                       0          1
+/\top_module#DUT /a9 code.sv(178)                       0          1
+/\top_module#DUT /a10
+                     code.sv(179)                       0          1
+/\top_module#DUT /a11
+                     code.sv(180)                       0          1
+/\top_module#DUT /a12
+                     code.sv(181)                       0          1
+/\top_module#DUT /a13
+                     code.sv(182)                       0          1
+/\top_module#DUT /a14
+                     code.sv(183)                       0          1
+/\top_module#DUT /a15
+                     code.sv(184)                       0          1
+/\top_module#DUT /a16
+                     code.sv(185)                       0          1
+/\top_module#DUT /a17
+                     code.sv(186)                       0          1
+/\top_module#DUT /a18
+                     code.sv(187)                       0          1
+/\top_module#DUT /a19
+                     code.sv(188)                       0          1
+
+Total Coverage By Instance (filtered view): 100.00%
+

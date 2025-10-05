@@ -1,0 +1,84 @@
+# vsim -voptargs="+acc" work.top -sv_seed random -l simlog 
+# Start time: 19:29:03 on Sep 24,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.top(fast)
+# Loading work.fifo_if(fast__1)
+# Loading work.FIFO(fast)
+# Loading work.shared_pkg(fast)
+# Loading work.FIFO_transaction_pkg(fast)
+# Loading work.test_bench_sv_unit(fast)
+# Loading work.fifo_tb(fast)
+# Loading work.FIFO_scoreboard_pkg(fast)
+# Loading work.FIFO_coverage_pkg(fast)
+# Loading work.fifo_mon_sv_unit(fast)
+# Loading work.fifo_monitor(fast)
+# Sv_Seed = 528739369
+# [WRONG] data_out mismatch at 2: DUT=0000 REF=xxxx
+# [WRONG] data_out mismatch at 4: DUT=0000 REF=xxxx
+# [WRONG] data_out mismatch at 6: DUT=0000 REF=xxxx
+# [WRONG] data_out mismatch at 8: DUT=0000 REF=xxxx
+# [WRONG] data_out mismatch at 10: DUT=0000 REF=xxxx
+# [WRONG] data_out mismatch at 12: DUT=0000 REF=xxxx
+# [WRONG] data_out mismatch at 14: DUT=0000 REF=xxxx
+# [WRONG] data_out mismatch at 16: DUT=0000 REF=xxxx
+# [WRONG] data_out mismatch at 18: DUT=0000 REF=xxxx
+# [WRONG] data_out mismatch at 20: DUT=0000 REF=xxxx
+# [WRONG] overflow mismatch at 33414: DUT=1 REF=0
+# [WRONG] overflow mismatch at 44382: DUT=1 REF=0
+# [WRONG] overflow mismatch at 53986: DUT=1 REF=0
+# [WRONG] overflow mismatch at 54632: DUT=1 REF=0
+# [WRONG] overflow mismatch at 106264: DUT=1 REF=0
+# [WRONG] overflow mismatch at 106266: DUT=1 REF=0
+# [WRONG] overflow mismatch at 159608: DUT=1 REF=0
+# [WRONG] overflow mismatch at 162266: DUT=1 REF=0
+# [WRONG] overflow mismatch at 200590: DUT=1 REF=0
+# [WRONG] overflow mismatch at 200592: DUT=1 REF=0
+# [WRONG] data_out mismatch at 263220: DUT=0000 REF=c03f
+# [WRONG] data_out mismatch at 263222: DUT=0000 REF=c03f
+# ** Note: $stop    : test_bench.sv(33)
+#    Time: 263222 ns  Iteration: 1  Instance: /top/TEST
+# Break in Module fifo_tb at test_bench.sv line 33
+add wave -position insertpoint  \
+sim:/top/f_if/data_in \
+sim:/top/f_if/rst_n \
+sim:/top/f_if/wr_en \
+sim:/top/f_if/rd_en \
+sim:/top/f_if/data_out \
+sim:/top/f_if/wr_ack \
+sim:/top/f_if/overflow \
+sim:/top/f_if/underflow \
+sim:/top/f_if/full \
+sim:/top/f_if/empty \
+sim:/top/f_if/almostfull \
+sim:/top/f_if/almostempty
+quit -sim
+# Saving coverage database on exit...
+# End time: 19:32:25 on Sep 24,2025, Elapsed time: 0:03:22
+# Errors: 0, Warnings: 0
+do run.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 19:32:52 on Sep 24,2025
+# vlog -reportprogress 300 -f src_files.list "+define+SIM" "+cover=bces" -covercells 
+# -- Compiling interface fifo_if
+# -- Compiling module FIFO
+# -- Compiling package shared_pkg
+# -- Compiling package FIFO_transaction_pkg
+# -- Importing package shared_pkg
+# -- Compiling package FIFO_coverage_pkg
+# -- Importing package FIFO_transaction_pkg
+# -- Compiling package FIFO_scoreboard_pkg
+# -- Compiling package fifo_mon_sv_unit
+# -- Importing package FIFO_coverage_pkg
+# -- Importing package FIFO_scoreboard_pkg
+# -- Compiling module fifo_monitor
+# -- Compiling package test_bench_sv_unit
+# -- Compiling module fifo_tb
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 19:32:52 on Sep 24,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
