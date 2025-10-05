@@ -1,10 +1,3 @@
-////////////////////////////////////////////////////////////////////////////////
-// Author: Kareem Waseem
-// Course: Digital Verification using SV & UVM
-//
-// Description: FIFO Design 
-// 
-////////////////////////////////////////////////////////////////////////////////
 /*
 my edits:
 1- reg [FIFO_WIDTH-1:0] mem [0:FIFO_DEPTH-1]; <- reg [FIFO_WIDTH-1:0] mem [FIFO_DEPTH-1:0] (due to it is unpacked); 
@@ -270,3 +263,4 @@ assign f_if.almostfull = (count == FIFO_DEPTH-1)? 1 : 0;
 assign f_if.almostempty = (count == 1)? 1 : 0;
 
 endmodule
+
